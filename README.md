@@ -15,7 +15,7 @@ The goal is **Zero-Touch Deployment**: From an empty Azure subscription to visua
 `Nginx App Server` --(Private Network)--> `Splunk Indexer (Port 9997)`
 
 ##  Project Structure
-
+```text
 ops-lab/
 ├── infra/               # Terraform Code
 │   ├── main.tf          # Resources (VMs, NICs, NSGs)
