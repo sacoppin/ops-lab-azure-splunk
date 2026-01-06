@@ -123,7 +123,7 @@ This project simulated real-world infrastructure issues. Here is how I diagnosed
 
 ---
 
-## 📈 Evidence of Success
+##  Evidence of Success
 
 **1. Infrastructure Provisioned (Azure)**
 
@@ -137,7 +137,7 @@ This project simulated real-world infrastructure issues. Here is how I diagnosed
 
 ---
 
-## 🧹 Cleanup
+##  Cleanup
 
 To avoid Azure costs, destroy the infrastructure:
 
