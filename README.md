@@ -1,6 +1,5 @@
 Voici le fichier complet, prêt à être copié-collé. Je l'ai mis dans un seul bloc de code propre pour qu'il n'y ait aucun problème de formatage.
 
-```markdown
 # 🚀 Ops-Lab: Automated Splunk Onboarding on Azure
 
 ## 📋 Project Overview
@@ -29,8 +28,6 @@ ops-lab/
 │   ├── hosts.ini        # Inventory
 │   └── secrets.yml      # Password Vault (Not committed)
 └── README.md            # Documentation
-
-```
 
 ## 🚀 How to Run (Step-by-Step)
 
