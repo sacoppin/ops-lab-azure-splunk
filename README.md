@@ -1,5 +1,3 @@
-Voici le fichier complet, prêt à être copié-collé. Je l'ai mis dans un seul bloc de code propre pour qu'il n'y ait aucun problème de formatage.
-
 # 🚀 Ops-Lab: Automated Splunk Onboarding on Azure
 
 ## 📋 Project Overview
