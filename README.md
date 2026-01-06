@@ -1,11 +1,11 @@
 #  Ops-Lab: Automated Splunk Onboarding on Azure
 
-## 📋 Project Overview
+##  Project Overview
 This project demonstrates a complete **DevSecOps pipeline** to automate the infrastructure provisioning and monitoring onboarding for a web application.
 
 The goal is **Zero-Touch Deployment**: From an empty Azure subscription to visualized logs in Splunk, ensuring security best practices (Private IPs, Network Segmentation, Secret Management).
 
-## 🏗 Architecture
+##  Architecture
 * **Cloud Provider:** Azure (Sandbox)
 * **Infrastructure as Code:** Terraform
 * **Configuration Management:** Ansible
@@ -14,7 +14,7 @@ The goal is **Zero-Touch Deployment**: From an empty Azure subscription to visua
 **Data Flow:**
 `Nginx App Server` --(Private Network)--> `Splunk Indexer (Port 9997)`
 
-## 📂 Project Structure
+##  Project Structure
 ```text
 ops-lab/
 ├── infra/               # Terraform Code
