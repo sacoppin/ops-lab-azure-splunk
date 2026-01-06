@@ -146,6 +146,4 @@ terraform destroy -auto-approve
 
 ```
 
-```
 
-```
