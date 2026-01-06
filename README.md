@@ -126,6 +126,7 @@ This project simulated real-world infrastructure issues. Here is how I diagnosed
 ## 📈 Evidence of Success
 
 **1. Infrastructure Provisioned (Azure)**
+
 ![Azure Resource Group view](images/azure-architecture.png)
 
 **2. Ansible Pipeline Success**
