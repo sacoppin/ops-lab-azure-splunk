@@ -1,0 +1,9 @@
+.DS_Store
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terraform/
+secrets.yml
+keys/
+id_rsa
+id_rsa.pub

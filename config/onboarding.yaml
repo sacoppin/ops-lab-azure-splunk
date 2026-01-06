@@ -1,0 +1,69 @@
+---
+- name: Ops-Lab Onboarding Pipeline
+  hosts: new_teams
+  become: yes
+  vars:
+    # --- CONFIGURATION VARIABLES (REPLACE THESE) ---
+    splunk_public_ip: "172.201.180.103"
+    splunk_private_ip: "10.0.1.5"
+    # -----------------------------------------------
+    
+    splunk_pass: "LabPass123!"
+    new_index_name: "mobile_app_logs"
+
+  # Task 1: Provision Splunk Storage (Index) via REST API
+  # Executed locally on the control node to talk to Splunk Management Port
+
+  # Task 2: Configure the Client Server (Universal Forwarder)
+  tasks:
+    - name: Install Nginx (Simulate App Traffic)
+      apt: 
+        name: nginx 
+        state: present 
+        update_cache: yes
+
+    - name: Download Splunk Universal Forwarder
+      get_url:
+        url: "https://download.splunk.com/products/universalforwarder/releases/9.1.2/linux/splunkforwarder-9.1.2-b6b9c8185839-linux-2.6-amd64.deb"
+        dest: /tmp/uf.deb
+
+    - name: Install Splunk Universal Forwarder
+      apt: 
+        deb: /tmp/uf.deb
+
+    - name: Initialize Forwarder (Accept License)
+      command: "/opt/splunkforwarder/bin/splunk start --accept-license --answer-yes --no-prompt --seed-passwd {{ splunk_pass }}"
+      args:
+        creates: /opt/splunkforwarder/etc/system/local/inputs.conf
+    - name: Stop Splunk (Prepare for Boot Start)
+      command: "/opt/splunkforwarder/bin/splunk stop"
+      ignore_errors: yes
+      
+    - name: Enable Boot Start (Create Service)
+      command: "/opt/splunkforwarder/bin/splunk enable boot-start --accept-license --answer-yes --no-prompt"
+
+    - name: Configure Outputs (Route to Private IP)
+      copy:
+        dest: /opt/splunkforwarder/etc/system/local/outputs.conf
+        content: |
+          [tcpout]
+          defaultGroup = splunk_prod
+          
+          [tcpout:splunk_prod]
+          server = {{ splunk_private_ip }}:9997
+
+    - name: Configure Inputs (Monitor Nginx Logs)
+      copy:
+        dest: /opt/splunkforwarder/etc/system/local/inputs.conf
+        content: |
+          [monitor:///var/log/nginx/access.log]
+          disabled = 0
+          index = {{ new_index_name }}
+          sourcetype = nginx:access
+      notify: Restart Splunk Forwarder
+
+  handlers:
+    - name: Restart Splunk Forwarder
+      service: 
+        name: splunk 
+        state: restarted
