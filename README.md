@@ -1,4 +1,4 @@
-# 🚀 Ops-Lab: Automated Splunk Onboarding on Azure
+#  Ops-Lab: Automated Splunk Onboarding on Azure
 
 ## 📋 Project Overview
 This project demonstrates a complete **DevSecOps pipeline** to automate the infrastructure provisioning and monitoring onboarding for a web application.
@@ -27,7 +27,7 @@ ops-lab/
 │   └── secrets.yml      # Password Vault (Not committed)
 └── README.md            # Documentation
 
-## 🚀 How to Run (Step-by-Step)
+##  How to Run (Step-by-Step)
 
 ### Prerequisites
 
