@@ -131,13 +131,13 @@ This project simulated real-world infrastructure issues. Here is how I diagnosed
 ## 📈 Evidence of Success
 
 **1. Infrastructure Provisioned (Azure)**
-*(Place your Azure screenshot here)*
+![Azure Resource Group view](images/azure-architecture.png)
 
 **2. Ansible Pipeline Success**
-*(Place your Terminal screenshot here)*
+![Ansible Playbook Successful Run](images/ansible-success.png)
 
 **3. Real-time Log Streaming**
-*(Place your Splunk logs screenshot here)*
+![Splunk Search showing Nginx logs](images/splunk-logs-proof.png)
 
 ---
 
